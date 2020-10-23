@@ -112,7 +112,7 @@ input {
   width: 98%;
   height: 10vh;
   background-color: transparent;
-  padding: 0.5vh 0 2vh 1vw;
+  padding: 1.5vh 0 2vh 1vw;
   justify-content: flex-start;
   align-items: center;
 }
