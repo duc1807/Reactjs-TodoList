@@ -40,29 +40,6 @@ const TodoApp = () => {
       console.log("active");
     }
   };
-  const checkActive = (status) => {
-    if (list && list.length) {
-      list.map((item) => {
-        switch (item.status) {
-          case "active":
-            document.getElementById(item.id).style.display =
-              "rgb(223, 223, 223)";
-            break;
-          case "done":
-            document.getElementById(item.id).style.backgroundColor = "green";
-            break
-        default:
-            return undefined
-        }
-        if (item.status === "active") {
-          document.getElementById(item.id).style.backgroundColor =
-            "rgb(223, 223, 223)";
-        } else if (item.status === "done") {
-          document.getElementById(item.id).style.backgroundColor = "green";
-        }
-      });
-    }
-  };
 
   const removeTodo = (id) => {
     setList(list.filter((items) => items.id !== id));

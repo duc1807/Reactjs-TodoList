@@ -31,7 +31,6 @@ const TodoApp = () => {
           return newList;
         })
       );
-      console.log("done");
     } else if (status === "done") {
       // var doneTodo = list.find((item) => item.id == id);
       // doneTodo.status = "active";
@@ -45,7 +44,6 @@ const TodoApp = () => {
           return newList;
         })
       );
-      console.log("active");
     }
   };
   const checkActive = (status) => {
@@ -88,19 +86,7 @@ const TodoApp = () => {
   //   //     break
   //   // }
   // };
-  const showAllTodo = () => {
-    setList(mainList);
-    checkActive(list);
-  };
-  const showActiveTodo = () => {
-    var newList = mainList.filter((item) => item.status == "active");
-    setList(newList);
-    checkActive(newList);
-  };
-  const showCompletedTodo = () => {
-    var newList = mainList.filter((item) => item.status === "done");
-    setList(newList);
-  };
+
   const removeTodo = (id) => {
     console.log("ok");
     var newList = list.filter((items) => items.id !== id);
@@ -111,6 +97,7 @@ const TodoApp = () => {
   };
   return (
     <div className="container">
+      <h1 id="title">Take note your todo tasks ↝</h1>
       <div className="input">
         <form onSubmit={handleSubmit}>
           <input
@@ -196,7 +183,7 @@ const TodoApp = () => {
                     </li>
                   </div>
                   <div id="delBtn" onClick={() => removeTodo(item.id)}>
-                    <p>X</p>
+                    <p>⨯</p>
                   </div>
                 </div>
               );
@@ -208,13 +195,13 @@ const TodoApp = () => {
           if(filter === "all") return item
           else return item.status === filter
           })).length} items left</p>
-        <button className="btn" onClick={() => setFilter("all")}>
+        <button className={`btn ${filter === "all" ?  'activeBtn' : ""}`} onClick={() => setFilter("all")}>
           All
         </button>
-        <button className="btn" onClick={() => setFilter("active")}>
+        <button className={`btn ${filter === "active" ?  'activeBtn' : ""}`} onClick={() => setFilter("active")}>
           Active
         </button>
-        <button className="btn" onClick={() => setFilter("done")}>
+        <button className={`btn ${filter === "done" ?  'activeBtn' : ""}`} onClick={() => setFilter("done")}>
           Completed
         </button>
       </div>
